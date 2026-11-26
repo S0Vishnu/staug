@@ -1,4 +1,5 @@
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { CursorFollower } from './components/CursorFollower'
 import { Preloader } from './components/Preloader'
 import { RevealManager } from './components/RevealManager'
@@ -7,8 +8,21 @@ import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
 import { AboutPage } from './pages/AboutPage'
 import { HomePage } from './pages/HomePage'
+import { NotFoundPage } from './pages/NotFoundPage'
 import { SpatialPage } from './pages/SpatialPage'
 import { StaffPage } from './pages/StaffPage'
+import { trackPageView } from './seo/analytics'
+
+function AnalyticsRoute() {
+  const { pathname, search } = useLocation()
+
+  useEffect(() => {
+    trackPageView(`${pathname}${search}`)
+  }, [pathname, search])
+
+  return null
+}
+
 function AnimatedRoutes() {
   const { pathname } = useLocation()
 
@@ -19,15 +33,17 @@ function AnimatedRoutes() {
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/spatial" element={<SpatialPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   )
 }
 
-export default function App() {
+export function AppShell() {
   return (
-    <BrowserRouter>
+    <>
+      <AnalyticsRoute />
       <Preloader />
       <CursorFollower />
       <ScrollManager />
@@ -38,6 +54,14 @@ export default function App() {
         <AnimatedRoutes />
       </main>
       <SiteFooter />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   )
 }

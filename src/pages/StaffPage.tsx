@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react'
+import { Breadcrumbs } from '../components/Breadcrumbs'
 import { Button } from '../components/Button'
 import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
+import { pages } from '../seo/site'
 import { padNumber, roles } from '../data/talent'
 import { HeroStaff } from '../illustrations/scenes'
 import '../styles/talent.css'
@@ -90,9 +92,10 @@ const workforce = ['Employees', 'Contractors', 'Temporary workers']
 export function StaffPage() {
   return (
     <>
-      <PageMeta title="STAUG — Staff Augmentation" />
+      <PageMeta page="staff" />
       <section className="container hero grid-2">
         <div className="stack stack-lg">
+          <Breadcrumbs items={pages.staff.crumbs} />
           <p className="kicker">
             <span className="mark">STAUG</span> · <span className="mark">ST</span>aff <span className="mark">AUG</span>mentation
           </p>
@@ -153,7 +156,9 @@ export function StaffPage() {
           <div className="stack stack-sm measure">
             <p className="eyebrow">Our talent</p>
             <h2 className="display display-lg">The STAUG Table of Talent.</h2>
-            <p className="body">Twenty elements. Combine them in any formula your project needs.</p>
+            <p className="body">
+              Twenty disciplines across engineering, design, creative, data and AI, leadership, growth and enterprise systems — frontend and backend developers, QA, UI/UX, 3D modelling, AI, project managers and ERP specialists. Combine them in any formula your project needs.
+            </p>
           </div>
           <p className="quiet">
             Hover or focus an element to learn more

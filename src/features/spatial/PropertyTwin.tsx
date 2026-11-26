@@ -186,7 +186,7 @@ export function PropertyTwin() {
 
 function Masterplan() {
   return (
-    <svg viewBox="0 0 640 520" role="img" aria-label="Top-down site plan with five towers around a central pool; Tower B highlighted" style={{ background: '#1C1D17', width: '100%', height: 'auto' }}>
+    <svg width="640" height="520" viewBox="0 0 640 520" role="img" aria-label="Top-down site plan with five towers around a central pool; Tower B highlighted" style={{ background: '#1C1D17', width: '100%', height: 'auto' }}>
       <rect x="40" y="40" width="560" height="440" rx="8" fill="#262A1F" />
       <rect x="250" y="220" width="140" height="80" rx="6" fill="#9FB8B4" />
       <rect x="258" y="228" width="124" height="64" rx="4" fill="#B9CDC9" />
@@ -219,7 +219,7 @@ function Masterplan() {
 
 function UnitPlan({ onEnter }: { onEnter: (room: RoomId) => void }) {
   return (
-    <svg viewBox="0 0 900 640" style={{ width: '100%', minWidth: 620, height: 'auto' }} role="img" aria-label="Furnished one-bedroom unit plan">
+    <svg width="900" height="640" viewBox="0 0 900 640" style={{ width: '100%', minWidth: 620, height: 'auto' }} role="img" aria-label="Furnished one-bedroom unit plan">
       <rect x="90" y="56" width="710" height="530" fill="#F4EFE4" />
       <g stroke="#FFFFFF" strokeWidth="8">
         <rect x="100" y="66" width="180" height="200" fill="#CFC8BD" />
@@ -286,7 +286,7 @@ function RoomTag({
 
 function RoomScene({ room }: { room: RoomId }) {
   return (
-    <svg className="layer" viewBox="0 0 2400 600" preserveAspectRatio="none" role="img" aria-label={`360 degree view of the ${room}`}>
+    <svg className="layer" width="2400" height="600" viewBox="0 0 2400 600" preserveAspectRatio="none" role="img" aria-label={`360 degree view of the ${room}`}>
       <rect width="2400" height="600" fill="#E9E2D4" />
       <polygon points="0,0 2400,0 1800,90 600,90" fill="#F7F3EA" />
       <polygon points="0,0 600,90 600,460 0,600" fill="#DCD4C3" />

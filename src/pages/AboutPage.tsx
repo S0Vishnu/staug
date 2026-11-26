@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import { Breadcrumbs } from '../components/Breadcrumbs'
 import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
 import { IconCube, IconPeople } from '../illustrations/scenes'
+import { pages, SITE_EMAIL } from '../seo/site'
 
 const principles = [
   {
@@ -24,9 +26,10 @@ const principles = [
 export function AboutPage() {
   return (
     <>
-      <PageMeta title="STAUG — About us" />
+      <PageMeta page="about" />
       <section className="container hero grid-2">
         <div className="stack stack-lg">
+          <Breadcrumbs items={pages.about.crumbs} />
           <p className="eyebrow">About us</p>
           <h1 className="display display-hero">
             Two specialised practices. <em>One standard of precision.</em>
@@ -90,6 +93,17 @@ export function AboutPage() {
             <span className="card-link">Explore Spatial Augmentation →</span>
           </Link>
         </div>
+      </section>
+
+      <section className="container section stack stack-md measure">
+        <p className="eyebrow">How an engagement starts</p>
+        <h2 className="display display-lg">Tell us what needs to grow.</h2>
+        <p className="body">
+          Say whether you need people, a digital twin, or both. STAUG replies with a proposal shaped around your scope, timeline and scale — the same standard used for staffing and for spatial work.
+        </p>
+        <p className="body">
+          Email <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>, or use the enquiry form on this page. The detailed offers live on <Link to="/staff">staff augmentation</Link> and <Link to="/spatial">spatial augmentation</Link>.
+        </p>
       </section>
 
       <ContactSection />

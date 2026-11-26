@@ -1,6 +1,8 @@
+import { Breadcrumbs } from '../components/Breadcrumbs'
 import { Button } from '../components/Button'
 import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
+import { pages } from '../seo/site'
 import { PlotTwin } from '../features/spatial/PlotTwin'
 import { PropertyTwin } from '../features/spatial/PropertyTwin'
 import { CommunityAerial, IconPlan, IconPlot } from '../illustrations/scenes'
@@ -26,9 +28,10 @@ const steps = [
 export function SpatialPage() {
   return (
     <>
-      <PageMeta title="STAUG — Spatial Augmentation" />
+      <PageMeta page="spatial" />
       <section className="container hero grid-2" style={{ alignItems: 'end', paddingBottom: 40 }}>
         <div className="stack stack-md">
+          <Breadcrumbs items={pages.spatial.crumbs} />
           <p className="kicker">
             <span className="mark">STAUG</span> · <span className="mark">S</span>patial <span className="mark">T</span>win <span className="mark">AUG</span>mentation
           </p>

@@ -194,7 +194,7 @@ export function SiteHeader() {
             <Button to={cta.to}>{cta.label} →</Button>
             <div className="mobile-menu-contact">
               <a href="mailto:business@staug.in">business@staug.in</a>
-              <a href="https://www.staug.in">www.staug.in</a>
+              <a href="https://staug.in">staug.in</a>
             </div>
           </div>
         </nav>

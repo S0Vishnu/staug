@@ -45,6 +45,45 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--ink-2);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button:single-button,
+*::-webkit-scrollbar-button:vertical:start:decrement,
+*::-webkit-scrollbar-button:vertical:end:increment,
+*::-webkit-scrollbar-button:horizontal:start:decrement,
+*::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-hover), var(--gold) 42%, var(--gold-deep));
+  border: 2px solid var(--ink-2);
+  border-radius: var(--radius);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold-2) 55%, var(--gold));
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--ink);
 }
 
 body {
@@ -61,6 +100,7 @@ img,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 button,
@@ -785,13 +825,13 @@ h3 {
 
 .brand:hover { color: var(--ivory); }
 
-.logo-diamond {
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: transform 0.8s var(--ease-out);
+.logo-word {
+  color: #d8b040;
+  overflow: visible;
+  transition: color 0.35s ease;
 }
 
-.brand:hover .logo-diamond { transform: rotate(180deg) scale(0.86); }
+.brand:hover .logo-word { color: var(--gold-soft); }
 
 .menu-toggle {
   position: relative;
@@ -1242,3 +1282,47 @@ textarea.field { resize: vertical; }
   .card:hover,
   .paper-card:hover { transform: none; }
 }
+
+.crumbs { margin: 0; }
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--quiet);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.crumbs a { color: var(--muted-2); }
+
+.crumbs [aria-current="page"] { color: var(--ivory-2); }
+
+.crumbs li:not(:last-child)::after {
+  content: "/";
+  margin-inline: 8px;
+  color: var(--line-4);
+}
+
+.faq-list { border-top: 1px solid var(--line); }
+
+.faq-item {
+  display: grid;
+  gap: 12px;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+}
+
+.faq-link { font-weight: 700; }

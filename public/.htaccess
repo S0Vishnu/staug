@@ -1,0 +1,38 @@
+# Apache. Ignored by Netlify, Vercel and Cloudflare Pages.
+# www and http each redirect to https://staug.in in one hop.
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.staug\.in$ [NC]
+RewriteRule ^ https://staug.in%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^staug\.in$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://staug.in%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set X-Frame-Options "DENY"
+  </FilesMatch>
+  <FilesMatch "^index\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2|png|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

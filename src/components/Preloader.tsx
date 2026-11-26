@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import type { CSSProperties } from 'react'
+import { Logo } from './Logo'
 
 type Phase = 'load' | 'exit' | 'done'
-
-const letters = 'STAUG'.split('')
 
 export function Preloader() {
   const [phase, setPhase] = useState<Phase>('load')
@@ -59,17 +57,7 @@ export function Preloader() {
       <div className="pl-panel pl-top" />
       <div className="pl-panel pl-bottom" />
       <div className="pl-center" aria-hidden="true">
-        <svg className="pl-mark" viewBox="0 0 32 64">
-          <polygon points="16,2 30,32 16,62 2,32" />
-          <polygon className="pl-inner" points="16,14 24,32 16,50 8,32" />
-        </svg>
-        <div className="pl-word">
-          {letters.map((letter, i) => (
-            <span key={letter + i} style={{ '--i': i } as CSSProperties}>
-              {letter}
-            </span>
-          ))}
-        </div>
+        <Logo className="pl-logo" />
         <p className="pl-tag">Staff · Spatial · Augmentation</p>
       </div>
       <div className="pl-foot" aria-hidden="true">

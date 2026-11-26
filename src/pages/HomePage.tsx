@@ -4,6 +4,7 @@ import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
 import { PracticeTabs } from '../features/home/PracticeTabs'
 import { IconCube, IconPeople, HeroHome } from '../illustrations/scenes'
+import { homeFaqs } from '../seo/site'
 
 const principles = [
   {
@@ -26,7 +27,7 @@ const principles = [
 export function HomePage() {
   return (
     <>
-      <PageMeta title="STAUG — Staff & Spatial Augmentation" />
+      <PageMeta page="home" />
       <section className="container hero grid-2">
         <div className="stack stack-lg">
           <h1 className="display display-hero">
@@ -49,6 +50,9 @@ export function HomePage() {
         <div className="stack stack-sm measure">
           <p className="eyebrow">Our businesses</p>
           <h2 className="display display-lg">Two specialised practices. One standard of precision.</h2>
+          <p className="body">
+            <Link to="/about">About STAUG</Link> explains how staff augmentation and spatial digital twins sit together.
+          </p>
         </div>
         <div className="grid-cards">
           <Link className="card" to="/staff" data-cursor="Explore">
@@ -98,6 +102,22 @@ export function HomePage() {
               <h3>{item.title}</h3>
               <p className="body">{item.body}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section stack stack-lg" aria-labelledby="faq-heading">
+        <div className="stack stack-sm measure">
+          <p className="eyebrow">Questions</p>
+          <h2 id="faq-heading" className="display display-lg">What teams ask before they start.</h2>
+        </div>
+        <div className="faq-list">
+          {homeFaqs.map((faq) => (
+            <article key={faq.question} className="faq-item">
+              <h3>{faq.question}</h3>
+              <p className="body">{faq.answer}</p>
+              <Link className="faq-link" to={faq.to}>{faq.link}</Link>
+            </article>
           ))}
         </div>
       </section>

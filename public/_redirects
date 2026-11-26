@@ -1,0 +1,6 @@
+https://www.staug.in/* https://staug.in/:splat 301
+http://www.staug.in/* https://staug.in/:splat 301
+http://staug.in/* https://staug.in/:splat 301
+/staff/ /staff 301
+/spatial/ /spatial 301
+/about/ /about 301

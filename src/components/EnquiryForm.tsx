@@ -1,3 +1,4 @@
+import { SITE_EMAIL } from '../seo/site'
 import { useState, type FormEvent } from 'react'
 import { Button } from './Button'
 
@@ -52,7 +53,7 @@ export function EnquiryForm() {
       '',
       fields.message,
     ].join('\n')
-    const mailto = `mailto:business@staug.in?subject=${encodeURIComponent('STAUG enquiry')}&body=${encodeURIComponent(body)}`
+    const mailto = `mailto:${SITE_EMAIL}?subject=${encodeURIComponent('STAUG enquiry')}&body=${encodeURIComponent(body)}`
 
     return (
       <div className="confirm" role="status">

@@ -1,6 +1,6 @@
 export function HeroHome() {
   return (
-    <svg viewBox="0 0 560 520" role="img" aria-label="A gold wireframe tower beside a network of connected professionals">
+    <svg width="560" height="520" viewBox="0 0 560 520" role="img" aria-label="A gold wireframe tower beside a network of connected professionals">
       <defs>
         <pattern id="home-winL" width="20" height="28" patternUnits="userSpaceOnUse">
           <rect width="20" height="28" fill="#17150F" />
@@ -63,7 +63,7 @@ export function HeroHome() {
 
 export function HeroStaff() {
   return (
-    <svg viewBox="0 0 560 480" role="img" aria-label="Your core team in ivory, with pre-vetted STAUG professionals in gold joining the network">
+    <svg width="560" height="480" viewBox="0 0 560 480" role="img" aria-label="Your core team in ivory, with pre-vetted STAUG professionals in gold joining the network">
       <defs>
         <radialGradient id="staff-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0" stopColor="#C9A54C" stopOpacity="0.18" />
@@ -131,7 +131,7 @@ export function HeroStaff() {
 
 export function CommunityAerial() {
   return (
-    <svg viewBox="0 0 1200 560" role="img" aria-label="Aerial digital-twin view of a residential community with ivory towers around a landscaped courtyard">
+    <svg width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Aerial digital-twin view of a residential community with ivory towers around a landscaped courtyard">
       <defs>
         <linearGradient id="aerial-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#1A1813" />

@@ -44,7 +44,7 @@ export function PlotTwin() {
           Hover a plot · tap for details
         </div>
         <div className="world">
-          <svg className="ground" viewBox="0 0 1200 860" aria-hidden="true">
+          <svg className="ground" width="1200" height="860" viewBox="0 0 1200 860" aria-hidden="true">
             <rect width="1200" height="860" fill="#2A4220" />
             <g opacity="0.9">
               <rect x="8" y="8" width="250" height="680" fill="#3E5F27" />
@@ -96,11 +96,11 @@ export function PlotTwin() {
         </div>
       </div>
       <aside className="plot-aside">
-        <div className="stack" style={{ gap: 10 }}>
-          <p className="eyebrow" style={{ letterSpacing: '0.24em', fontSize: 12 }}>Development</p>
-          <h3 className="serif-title" style={{ fontSize: 36 }}>Sample Plotted Layout</h3>
-          <p className="body" style={{ fontSize: 15 }}>[Locality, City, State · PIN]</p>
-          <span className="demo-tag">DEMO DATA</span>
+        <div className="plot-intro">
+          <p className="eyebrow">Development</p>
+          <h3 className="serif-title">Sample Plotted Layout</h3>
+          <p className="plot-loc">[Locality, City, State · PIN]</p>
+          <span className="demo-tag">Demo data</span>
         </div>
         <div className="stat-pair">
           <div>
@@ -112,8 +112,8 @@ export function PlotTwin() {
             <p className="quiet">blocks</p>
           </div>
         </div>
-        <div className="stack" style={{ gap: 12 }}>
-          <p style={{ margin: 0, fontWeight: 700 }}>Plot availability</p>
+        <div className="avail">
+          <p className="avail-label">Plot availability</p>
           <div className="ticks" aria-hidden="true">
             {ticks.map((item) => (
               <span key={item.no} className={`tick s-${item.status}`} />
@@ -130,34 +130,37 @@ export function PlotTwin() {
               >
                 <span className={`dot s-${key}`} />
                 <strong>{counts[key]}</strong>
-                {statusLabel[key]}
+                <span>{statusLabel[key]}</span>
               </button>
             ))}
           </div>
         </div>
         <div className="selected">
-          <p className="fine">SELECTED PLOT</p>
-          <p className="serif-title" style={{ fontSize: 34, color: 'var(--gold-3)' }}>Plot {plot.no}</p>
-          <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span className={`dot s-${plot.status}`} />
-            {statusLabel[plot.status]} · Block {plot.block}
-          </p>
-          <dl className="facts">
-            <div><dt>FACING</dt><dd>🧭 {detail.facing}</dd></div>
-            <div><dt>PLOT AREA</dt><dd>{detail.sizeLabel} sq.ft</dd></div>
-            <div><dt>DIMENSIONS</dt><dd>{detail.dims}</dd></div>
+          <div className="sel-top">
             <div>
-              <dt>CORNER PLOT</dt>
-              <dd className={detail.corner ? 'c-yes' : 'c-no'}>
-                {detail.corner ? '✓ Yes · two roads' : '✕ No'}
-              </dd>
+              <p className="fine">Selected plot</p>
+              <p className="sel-name">Plot {plot.no}</p>
             </div>
-            <div><dt>ROAD IN FRONT</dt><dd>{detail.road}</dd></div>
-            <div><dt>APPROVAL</dt><dd>{detail.approval}</dd></div>
+            <p className="sel-meta">
+              <span className={`dot s-${plot.status}`} />
+              <span>{statusLabel[plot.status]}</span>
+              <span className="sel-block">{plot.block}</span>
+            </p>
+          </div>
+          <dl className="facts">
+            <div><dt>Facing</dt><dd>{detail.facing}</dd></div>
+            <div><dt>Area</dt><dd>{detail.sizeLabel} sq.ft</dd></div>
+            <div><dt>Size</dt><dd>{detail.dims}</dd></div>
+            <div>
+              <dt>Corner</dt>
+              <dd className={detail.corner ? 'c-yes' : 'c-no'}>{detail.corner ? 'Yes' : 'No'}</dd>
+            </div>
+            <div><dt>Frontage</dt><dd>{detail.road}</dd></div>
+            <div><dt>Approval</dt><dd>{detail.approval}</dd></div>
           </dl>
           <div className="price-row">
             <span className="quiet">{detail.rate}</span>
-            <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--gold-3)' }}>{detail.price}</span>
+            <span className="sel-price">{detail.price}</span>
           </div>
         </div>
       </aside>

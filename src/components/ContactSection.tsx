@@ -1,3 +1,4 @@
+import { SITE_EMAIL, SITE_ORIGIN } from '../seo/site'
 import { EnquiryForm } from './EnquiryForm'
 
 export function ContactSection() {
@@ -12,10 +13,10 @@ export function ContactSection() {
           </p>
           <div className="stack" style={{ gap: 10, marginTop: 8, color: 'var(--paper-ink)' }}>
             <p style={{ margin: 0 }}>
-              Email: <a href="mailto:business@staug.in"><strong>business@staug.in</strong></a>
+              Email: <a href={`mailto:${SITE_EMAIL}`}><strong>{SITE_EMAIL}</strong></a>
             </p>
             <p style={{ margin: 0 }}>
-              Website: <a href="https://www.staug.in"><strong>www.staug.in</strong></a>
+              Website: <a href={SITE_ORIGIN}><strong>staug.in</strong></a>
             </p>
           </div>
         </div>

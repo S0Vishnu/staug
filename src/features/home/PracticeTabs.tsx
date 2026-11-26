@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
@@ -198,7 +198,7 @@ export function PracticeTabs() {
     }
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const place = () => {
       const tab = tabRefs.current[active]
       const indicator = indicatorRef.current
