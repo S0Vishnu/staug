@@ -136,6 +136,10 @@ a:hover {
   color: var(--ink);
 }
 
+.paper + .paper {
+  border-top: 1px solid var(--paper-line);
+}
+
 .stack {
   display: flex;
   flex-direction: column;
@@ -1179,37 +1183,6 @@ textarea.field { resize: vertical; }
   margin-top: auto;
 }
 
-.view-switch {
-  display: inline-flex;
-  border: 1px solid var(--line-3);
-}
-
-.view-switch a {
-  padding: 10px 16px;
-  color: var(--ivory-2);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.view-switch a.is-active {
-  background: var(--gold);
-  color: var(--ink);
-}
-
-.view-meta {
-  gap: 12px;
-  align-items: flex-end;
-}
-
-.view-switch a {
-  transition: background 0.35s ease, color 0.35s ease;
-}
-
-.view-switch a:hover { color: var(--gold-2); }
-.view-switch a.is-active:hover { color: var(--ink); }
-
 .hero > svg,
 .hero > div > svg {
   translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px);
@@ -1252,7 +1225,6 @@ textarea.field { resize: vertical; }
   .hero .cluster .btn { width: 100%; }
 
   .split { align-items: flex-start; }
-  .view-meta { align-items: flex-start; }
   .stat { padding: 22px; }
   .step-row { gap: 16px; }
 

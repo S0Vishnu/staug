@@ -443,9 +443,6 @@ html.is-loading .page {
     animation-name: fade-in;
   }
 
-  .spin,
-  .counter { animation: none; }
-
   .mobile-menu-bg { transition-duration: 0.4s; }
 }
 

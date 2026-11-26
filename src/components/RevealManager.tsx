@@ -14,17 +14,15 @@ const TARGETS = [
   '.process > li',
   '.steps > li',
   '.talent-table > *',
-  '.editorial > *',
   '.panel',
   '.article',
   '.form',
   '.aerial-frame',
   '.twin-stage',
   '.plot-frame',
-  '.view-switch',
 ].join(',')
 
-const SKIP = '.hero, .orbit-wrap, .plot-frame *, .plot-aside, .twin-stage *, [data-reveal-skip]'
+const SKIP = '.hero, .plot-frame *, .plot-aside, .twin-stage *, [data-reveal-skip]'
 
 export function RevealManager() {
   const { pathname } = useLocation()

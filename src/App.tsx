@@ -5,12 +5,10 @@ import { RevealManager } from './components/RevealManager'
 import { ScrollManager } from './components/ScrollManager'
 import { SiteFooter } from './components/SiteFooter'
 import { SiteHeader } from './components/SiteHeader'
+import { AboutPage } from './pages/AboutPage'
 import { HomePage } from './pages/HomePage'
 import { SpatialPage } from './pages/SpatialPage'
 import { StaffPage } from './pages/StaffPage'
-import { TalentEditorialPage } from './pages/TalentEditorialPage'
-import { TalentOrbitPage } from './pages/TalentOrbitPage'
-
 function AnimatedRoutes() {
   const { pathname } = useLocation()
 
@@ -20,8 +18,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/staff" element={<StaffPage />} />
         <Route path="/spatial" element={<SpatialPage />} />
-        <Route path="/talent" element={<TalentEditorialPage />} />
-        <Route path="/talent/orbit" element={<TalentOrbitPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>

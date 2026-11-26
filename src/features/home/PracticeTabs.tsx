@@ -101,7 +101,7 @@ function StaffPanel() {
             </Link>
           ))}
         </div>
-        <Link to="/talent" className="practice-elements" data-cursor="Talent" aria-label="Browse all twenty talent disciplines">
+        <Link to="/staff#talent" className="practice-elements" data-cursor="Talent" aria-label="Browse all twenty talent disciplines">
           {roles.slice(0, 8).map((role) => (
             <span key={role.sym} className="practice-element" title={role.name}>{role.sym}</span>
           ))}

@@ -1,27 +1,9 @@
-export type TalentGroupId = 'build' | 'create' | 'data' | 'lead'
-export type OrbitRing = 'inner' | 'outer'
-
 export type Role = {
   sym: string
   name: string
   table: string
-  group: TalentGroupId
-  ring: OrbitRing
-  orbitTag: string
   lines: [string, string, string]
 }
-
-export const groupMeta: Record<
-  TalentGroupId,
-  { roman: string; title: string }
-> = {
-  build: { roman: 'I', title: 'Build' },
-  create: { roman: 'II', title: 'Design & Create' },
-  data: { roman: 'III', title: 'Data & Intelligence' },
-  lead: { roman: 'IV', title: 'Lead & Grow' },
-}
-
-export const editorialOrder: TalentGroupId[] = ['build', 'create', 'data', 'lead']
 
 /** Periodic-table order used on the Staff Augmentation page. */
 export const tableOrder = [
@@ -52,9 +34,6 @@ const catalog: Role[] = [
     sym: 'Fe',
     name: 'Frontend Developers',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'React, Angular and Vue specialists',
       'Pixel-accurate, responsive, accessible UIs',
@@ -65,9 +44,6 @@ const catalog: Role[] = [
     sym: 'Be',
     name: 'Backend Developers',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'Node.js, Java, Python, .NET and Go',
       'Scalable APIs, microservices and databases',
@@ -78,9 +54,6 @@ const catalog: Role[] = [
     sym: 'Wd',
     name: 'Website Development',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'Corporate sites, portals and e-commerce',
       'WordPress, Shopify and headless CMS builds',
@@ -91,9 +64,6 @@ const catalog: Role[] = [
     sym: 'Mo',
     name: 'Android & iOS Developers',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'Native Kotlin and Swift apps',
       'Cross-platform Flutter and React Native',
@@ -104,9 +74,6 @@ const catalog: Role[] = [
     sym: 'En',
     name: 'Engine Developers',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'Unity and Unreal Engine specialists',
       'Real-time 3D, simulations and digital twins',
@@ -117,9 +84,6 @@ const catalog: Role[] = [
     sym: 'Qa',
     name: 'QA / QC Engineers',
     table: 'ENGINEERING',
-    group: 'build',
-    ring: 'inner',
-    orbitTag: 'BUILD',
     lines: [
       'Manual and automated testing',
       'Functional, regression and load testing',
@@ -130,9 +94,6 @@ const catalog: Role[] = [
     sym: 'Ux',
     name: 'UI / UX Designers',
     table: 'DESIGN',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       'User research, wireframes and prototypes',
       'Design systems built in Figma',
@@ -143,9 +104,6 @@ const catalog: Role[] = [
     sym: '3d',
     name: '3D Modelling',
     table: 'DESIGN',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       'Architectural, product and character models',
       'Texturing, lighting and photoreal rendering',
@@ -156,9 +114,6 @@ const catalog: Role[] = [
     sym: 'Gd',
     name: 'Graphic Designers',
     table: 'CREATIVE',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       'Brand identity, logos and collateral',
       'Social, print and digital campaigns',
@@ -169,9 +124,6 @@ const catalog: Role[] = [
     sym: 'An',
     name: 'Animators',
     table: 'CREATIVE',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       '2D and 3D animation',
       'Explainers, motion graphics and walkthroughs',
@@ -182,9 +134,6 @@ const catalog: Role[] = [
     sym: 'Ce',
     name: 'Creative Editors',
     table: 'CREATIVE',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       'Video and photo editing',
       'Reels, ads and corporate films',
@@ -195,9 +144,6 @@ const catalog: Role[] = [
     sym: 'Cw',
     name: 'Content Writers',
     table: 'CREATIVE',
-    group: 'create',
-    ring: 'outer',
-    orbitTag: 'CREATE',
     lines: [
       'Web copy, blogs and technical documents',
       'A consistent, clear brand voice',
@@ -208,9 +154,6 @@ const catalog: Role[] = [
     sym: 'Ai',
     name: 'AI / ML Developers',
     table: 'DATA & AI',
-    group: 'data',
-    ring: 'inner',
-    orbitTag: 'DATA',
     lines: [
       'Machine learning, NLP and computer vision',
       'LLM integration and AI automation',
@@ -221,9 +164,6 @@ const catalog: Role[] = [
     sym: 'Da',
     name: 'Data Analysts',
     table: 'DATA & AI',
-    group: 'data',
-    ring: 'inner',
-    orbitTag: 'DATA',
     lines: [
       'Data cleaning, modelling and visualisation',
       'Power BI, Tableau, SQL and Python',
@@ -234,9 +174,6 @@ const catalog: Role[] = [
     sym: 'Rd',
     name: 'R&D Consultants',
     table: 'LEADERSHIP',
-    group: 'data',
-    ring: 'inner',
-    orbitTag: 'DATA',
     lines: [
       'Feasibility studies and technical research',
       'Proofs of concept and innovation roadmaps',
@@ -247,9 +184,6 @@ const catalog: Role[] = [
     sym: 'Pj',
     name: 'Project Managers',
     table: 'LEADERSHIP',
-    group: 'lead',
-    ring: 'outer',
-    orbitTag: 'LEAD',
     lines: [
       'Agile, Scrum and Waterfall delivery',
       'Scope, timeline and budget control',
@@ -260,9 +194,6 @@ const catalog: Role[] = [
     sym: 'Pd',
     name: 'Product Managers',
     table: 'LEADERSHIP',
-    group: 'lead',
-    ring: 'outer',
-    orbitTag: 'LEAD',
     lines: [
       'Product vision, roadmaps and backlogs',
       'Customer discovery and market fit',
@@ -273,9 +204,6 @@ const catalog: Role[] = [
     sym: 'Sm',
     name: 'Core SMEs',
     table: 'LEADERSHIP',
-    group: 'lead',
-    ring: 'outer',
-    orbitTag: 'LEAD',
     lines: [
       'Subject-matter experts across industries',
       'Domain guidance for complex projects',
@@ -286,9 +214,6 @@ const catalog: Role[] = [
     sym: 'Dm',
     name: 'Digital Marketers',
     table: 'GROWTH',
-    group: 'lead',
-    ring: 'outer',
-    orbitTag: 'GROW',
     lines: [
       'SEO, SEM and social media campaigns',
       'Performance marketing with measurable ROI',
@@ -299,9 +224,6 @@ const catalog: Role[] = [
     sym: 'Er',
     name: 'ERP & CRM Specialists',
     table: 'ENTERPRISE',
-    group: 'lead',
-    ring: 'outer',
-    orbitTag: 'GROW',
     lines: [
       'SAP, Oracle, Odoo, Salesforce and Zoho',
       'Implementation, customisation and integration',
@@ -320,34 +242,4 @@ export const roles = tableOrder.map((sym) => {
 
 export function padNumber(n: number) {
   return n < 10 ? `0${n}` : String(n)
-}
-
-export function editorialGroups() {
-  let n = 0
-  return editorialOrder.map((id) => {
-    const items = catalog.filter((role) => role.group === id)
-    return {
-      ...groupMeta[id],
-      id,
-      count: `${items.length} roles`,
-      items: items.map((role) => {
-        n += 1
-        return { ...role, num: padNumber(n) }
-      }),
-    }
-  })
-}
-
-export function orbitRings() {
-  let n = 0
-  const place = (ring: OrbitRing) =>
-    catalog
-      .filter((role) => role.ring === ring)
-      .map((role, index) => {
-        n += 1
-        return { ...role, num: padNumber(n), index }
-      })
-  const inner = place('inner')
-  const outer = place('outer')
-  return { inner, outer }
 }

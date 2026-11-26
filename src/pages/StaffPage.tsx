@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 import { Button } from '../components/Button'
+import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
 import { padNumber, roles } from '../data/talent'
 import { HeroStaff } from '../illustrations/scenes'
@@ -156,7 +156,7 @@ export function StaffPage() {
             <p className="body">Twenty elements. Combine them in any formula your project needs.</p>
           </div>
           <p className="quiet">
-            Hover or focus an element to learn more · <Link to="/talent">Open the editorial index</Link>
+            Hover or focus an element to learn more
           </p>
         </div>
         <div className="talent-table">
@@ -299,6 +299,7 @@ export function StaffPage() {
           </div>
         </div>
       </section>
+      <ContactSection />
     </>
   )
 }

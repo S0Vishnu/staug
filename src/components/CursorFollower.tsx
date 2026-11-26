@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const INTERACTIVE = 'a, button, [role="button"], label, summary, .res, .item, .chip-node, .plot'
+const INTERACTIVE = 'a, button, [role="button"], label, summary, .res, .plot'
 const SPOTLIGHT = '.card, .tile, .panel, .article, .paper-card, .stat, .res, .practice-model, .practice-twin'
 const MAGNETIC = '.btn, .magnetic, .menu-toggle'
 

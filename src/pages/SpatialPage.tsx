@@ -1,4 +1,5 @@
 import { Button } from '../components/Button'
+import { ContactSection } from '../components/ContactSection'
 import { PageMeta } from '../components/PageMeta'
 import { PlotTwin } from '../features/spatial/PlotTwin'
 import { PropertyTwin } from '../features/spatial/PropertyTwin'
@@ -166,6 +167,7 @@ export function SpatialPage() {
           </div>
         </div>
       </section>
+      <ContactSection />
     </>
   )
 }

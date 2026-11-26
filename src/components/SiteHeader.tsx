@@ -6,45 +6,17 @@ import { Logo } from './Logo'
 
 type Item = { to: string; label: string; end?: boolean }
 
-const homeLinks: Item[] = [
+const links: Item[] = [
   { to: '/staff', label: 'Staff Augmentation' },
   { to: '/spatial', label: 'Spatial Augmentation' },
-  { to: '/talent', label: 'Talent' },
-  { to: '/#contact', label: 'Contact' },
+  { to: '/about', label: 'About us' },
+  { to: '#contact', label: 'Contact' },
 ]
 
-const staffLinks: Item[] = [
-  { to: '/staff', label: 'Staff Augmentation', end: true },
-  { to: '/spatial', label: 'Spatial Augmentation' },
-  { to: '/talent', label: 'Our talent' },
-  { to: '/staff#models', label: 'Engagement models' },
-]
-
-const spatialLinks: Item[] = [
-  { to: '/staff', label: 'Staff Augmentation' },
-  { to: '/spatial', label: 'Spatial Augmentation', end: true },
-  { to: '/spatial#plot-demo', label: 'Plot Twin' },
-  { to: '/spatial#demo', label: 'Property Twin' },
-]
-
-const talentLinks: Item[] = [
-  { to: '/staff', label: 'Staff Augmentation' },
-  { to: '/spatial', label: 'Spatial Augmentation' },
-  { to: '/talent', label: 'Editorial index', end: true },
-  { to: '/talent/orbit', label: 'Orbit' },
-]
-
-function menuFor(pathname: string) {
-  if (pathname.startsWith('/staff')) {
-    return { links: staffLinks, cta: { to: '/staff#cta', label: 'Hire talent' } }
-  }
-  if (pathname.startsWith('/spatial')) {
-    return { links: spatialLinks, cta: { to: '/spatial#cta', label: 'Start a twin' } }
-  }
-  if (pathname.startsWith('/talent')) {
-    return { links: talentLinks, cta: { to: '/#contact', label: 'Book a consultation' } }
-  }
-  return { links: homeLinks, cta: { to: '/#contact', label: 'Book a consultation' } }
+function ctaFor(pathname: string) {
+  if (pathname.startsWith('/staff')) return { to: '/staff#cta', label: 'Hire talent' }
+  if (pathname.startsWith('/spatial')) return { to: '/spatial#cta', label: 'Start a twin' }
+  return { to: '#contact', label: 'Book a consultation' }
 }
 
 function NavItem({ item, className = 'navlink', children }: { item: Item; className?: string; children?: ReactNode }) {
@@ -52,6 +24,15 @@ function NavItem({ item, className = 'navlink', children }: { item: Item; classN
   const [path, fragment] = item.to.split('#')
   const target = path || '/'
   const content = children ?? item.label
+
+  if (item.to.startsWith('#')) {
+    const active = hash === item.to
+    return (
+      <Link to={{ hash: item.to.slice(1) }} className={active ? `${className} is-active` : className}>
+        {content}
+      </Link>
+    )
+  }
 
   if (fragment) {
     const active = pathname === target && hash === `#${fragment}`
@@ -114,7 +95,7 @@ function useScrollChrome(progressRef: RefObject<HTMLSpanElement | null>) {
 
 export function SiteHeader() {
   const { pathname, hash } = useLocation()
-  const { links, cta } = menuFor(pathname)
+  const cta = ctaFor(pathname)
   const locationKey = `${pathname}${hash}`
   const [openKey, setOpenKey] = useState<string | null>(null)
   const open = openKey === locationKey
