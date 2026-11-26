@@ -214,6 +214,87 @@ export function CommunityAerial() {
   )
 }
 
+export function HeroMissing() {
+  const plots: { c: number; r: number; label: string; vacant?: boolean }[] = [
+    { c: 0, r: 0, label: 'A1' },
+    { c: 1, r: 0, label: 'A2' },
+    { c: 2, r: 0, label: 'A3' },
+    { c: 0, r: 1, label: 'B1' },
+    { c: 1, r: 1, label: '404', vacant: true },
+    { c: 2, r: 1, label: 'B3' },
+    { c: 0, r: 2, label: 'C1' },
+    { c: 1, r: 2, label: 'C2' },
+    { c: 2, r: 2, label: 'C3' },
+  ]
+
+  return (
+    <svg width="560" height="480" viewBox="0 0 560 480" role="img" aria-label="A plotted layout with one address missing, marked 404">
+      <defs>
+        <radialGradient id="missing-glow" cx="50%" cy="46%" r="52%">
+          <stop offset="0" stopColor="#C9A54C" stopOpacity="0.2" />
+          <stop offset="1" stopColor="#C9A54C" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx="280" cy="220" r="210" fill="url(#missing-glow)" />
+      <g fill="none" stroke="#8E8576" strokeWidth="1.2">
+        <path d="M64 72 V40" />
+        <path d="M64 40 l-5 9 h10 z" fill="#C9A54C" stroke="#C9A54C" />
+      </g>
+      <text x="80" y="46" fill="#8E8576" fontFamily="Manrope, sans-serif" fontSize="11" letterSpacing="2">N</text>
+      <rect x="86" y="78" width="388" height="312" fill="none" stroke="#2A2720" strokeDasharray="4 6" />
+      {plots.map((plot) => {
+        const x = 104 + plot.c * 122
+        const y = 96 + plot.r * 100
+        return (
+          <g key={`${plot.c}-${plot.r}`}>
+            <rect
+              x={x}
+              y={y}
+              width="104"
+              height="82"
+              fill={plot.vacant ? '#0B0B0C' : '#17150F'}
+              stroke={plot.vacant ? '#C9A54C' : '#3A352A'}
+              strokeWidth={plot.vacant ? 1.6 : 1.2}
+              strokeDasharray={plot.vacant ? '5 5' : undefined}
+            />
+            {plot.vacant ? (
+              <text
+                x={x + 52}
+                y={y + 48}
+                fill="#C9A54C"
+                fontFamily="Cormorant Garamond, Georgia, serif"
+                fontSize="28"
+                fontWeight="600"
+                textAnchor="middle"
+              >
+                404
+              </text>
+            ) : (
+              <>
+                <rect x={x + 28} y={y + 22} width="48" height="34" fill="#211E16" stroke="#C9A54C" strokeWidth="1" opacity="0.9" />
+                <text
+                  x={x + 12}
+                  y={y + 20}
+                  fill="#A69D8B"
+                  fontFamily="Manrope, sans-serif"
+                  fontSize="11"
+                  fontWeight="600"
+                  letterSpacing="0.6"
+                >
+                  {plot.label}
+                </text>
+              </>
+            )}
+          </g>
+        )
+      })}
+      <text x="280" y="424" fill="#8E8576" fontFamily="Manrope, sans-serif" fontSize="12" letterSpacing="3" textAnchor="middle">
+        UNMAPPED ADDRESS
+      </text>
+    </svg>
+  )
+}
+
 export function IconPeople() {
   return (
     <svg className="icon icon-lg" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
