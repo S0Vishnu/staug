@@ -8,13 +8,6 @@ import {
   type PlotStatus,
 } from '../../data/plots'
 
-const trees = Array.from({ length: 70 }, (_, index) => {
-  const x = (index * 137) % 1160 + 16
-  const y = (index * 89) % 820 + 12
-  const onSite = x > 260 && x < 960 && y > 110 && y < 700
-  return { x, y, r: 7 + (index % 7), hide: onSite }
-}).filter((tree) => !tree.hide)
-
 export function PlotTwin() {
   const [selected, setSelected] = useState('207')
   const [filter, setFilter] = useState<PlotStatus | null>(null)
@@ -43,33 +36,12 @@ export function PlotTwin() {
         <div className="hud-chip" style={{ bottom: 18, left: 18, letterSpacing: '0.08em', fontWeight: 600 }}>
           Hover a plot · tap for details
         </div>
-        <div className="world">
-          <svg className="ground" width="1200" height="860" viewBox="0 0 1200 860" aria-hidden="true">
-            <rect width="1200" height="860" fill="#2A4220" />
-            <g opacity="0.9">
-              <rect x="8" y="8" width="250" height="680" fill="#3E5F27" />
-              <rect x="268" y="8" width="720" height="110" fill="#46682B" />
-              <rect x="1000" y="8" width="190" height="680" fill="#365422" />
-              <rect x="8" y="760" width="1184" height="92" fill="#3B5A26" />
-            </g>
-            {trees.map((tree) => (
-              <circle key={`${tree.x}-${tree.y}`} cx={tree.x} cy={tree.y} r={tree.r} fill="#1F4417" />
-            ))}
-            <rect x="282" y="132" width="636" height="500" fill="#5B5240" opacity="0.55" />
-            <rect y="696" width="1200" height="48" fill="#26262A" />
-            <line x1="0" y1="720" x2="1200" y2="720" stroke="#F4EFE4" strokeWidth="2" strokeDasharray="14 12" />
-            <text x="40" y="714" fill="#CFC8B9" fontFamily="Manrope, sans-serif" fontSize="10" fontWeight="700" letterSpacing="3">
-              MAIN ROAD
-            </text>
-            <rect x="1000" y="0" width="48" height="696" fill="#26262A" />
-            <text transform="translate(1018 60) rotate(90)" fill="#CFC8B9" fontFamily="Manrope, sans-serif" fontSize="10" fontWeight="700" letterSpacing="3">
-              LINK ROAD
-            </text>
-            <rect x="1068" width="38" height="860" fill="rgba(0,0,0,.32)" />
-            <text transform="translate(1112 40) rotate(90)" fill="#DDB644" fontFamily="Manrope, sans-serif" fontSize="10" fontWeight="700" letterSpacing="3">
-              METRO LINE
-            </text>
-          </svg>
+        <div className="site-stage">
+          <img
+            className="site-photo"
+            src="/illustrations/plot-site.jpg?v=2"
+            alt=""
+          />
           <div className="tilt" role="group" aria-label="Plotted layout, 80 plots in four blocks">
             {plotsByBlock.map((block) => (
               <div key={block[0]?.block} className="blk">

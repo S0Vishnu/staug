@@ -407,7 +407,8 @@ html.is-loading .page {
   .hero .cluster,
   .hero .stack > p,
   .hero > svg,
-  .hero > div > svg {
+  .hero > div > svg,
+  .hero .hero-art {
     animation-name: fade-in;
   }
 

@@ -29,8 +29,8 @@ export function SpatialPage() {
   return (
     <>
       <PageMeta page="spatial" />
-      <section className="container hero grid-2" style={{ alignItems: 'end', paddingBottom: 40 }}>
-        <div className="stack stack-md">
+      <section className="container hero grid-2">
+        <div className="stack stack-lg">
           <Breadcrumbs items={pages.spatial.crumbs} />
           <p className="kicker">
             <span className="mark">STAUG</span> · <span className="mark">S</span>patial <span className="mark">T</span>win <span className="mark">AUG</span>mentation
@@ -38,9 +38,7 @@ export function SpatialPage() {
           <h1 className="display display-xl">
             Let buyers walk through it <em>before it’s built.</em>
           </h1>
-        </div>
-        <div className="stack stack-md">
-          <p className="lede">
+          <p className="lede measure-sm">
             We create 3D digital twins of real estate — plotted land layouts with live plot availability, and apartment projects with photoreal 360° interiors — built from your brochure, CAD layouts, palettes, unit plans, floor plans and amenity designs, exactly as the builder planned.
           </p>
           <div className="cluster">
@@ -48,12 +46,7 @@ export function SpatialPage() {
             <Button to="/spatial#twins" variant="ghost">Plot Twin vs Property Twin</Button>
           </div>
         </div>
-      </section>
-
-      <section className="container" style={{ paddingBottom: 88 }}>
-        <div className="aerial-frame">
-          <CommunityAerial />
-        </div>
+        <CommunityAerial />
       </section>
 
       <section id="twins" className="band">

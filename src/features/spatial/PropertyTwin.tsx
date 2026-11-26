@@ -186,34 +186,11 @@ export function PropertyTwin() {
 
 function Masterplan() {
   return (
-    <svg width="640" height="520" viewBox="0 0 640 520" role="img" aria-label="Top-down site plan with five towers around a central pool; Tower B highlighted" style={{ background: '#1C1D17', width: '100%', height: 'auto' }}>
-      <rect x="40" y="40" width="560" height="440" rx="8" fill="#262A1F" />
-      <rect x="250" y="220" width="140" height="80" rx="6" fill="#9FB8B4" />
-      <rect x="258" y="228" width="124" height="64" rx="4" fill="#B9CDC9" />
-      <g fill="#3E4A33">
-        <circle cx="200" cy="260" r="16" />
-        <circle cx="440" cy="250" r="14" />
-        <circle cx="320" cy="350" r="15" />
-        <circle cx="230" cy="380" r="12" />
-        <circle cx="420" cy="370" r="13" />
-        <circle cx="320" cy="180" r="12" />
-      </g>
-      <g fill="#E9E2D4" stroke="#8E8576">
-        <path d="M70 70h170v60h-110v80H70z" />
-        <path d="M400 70h170v140h-60v-80H400z" />
-        <path d="M70 300h60v110h110v50H70z" />
-        <path d="M420 420h150v40H420z" />
-      </g>
-      <path d="M270 70h100v90h-100z" fill="#C9A54C" stroke="#F1DFA6" strokeWidth="2" />
-      <g fontFamily="Manrope, sans-serif" fontSize="13" fontWeight="700" fill="#2A2720" textAnchor="middle">
-        <text x="140" y="104">A</text>
-        <text x="320" y="120" fill="#0B0B0C">B</text>
-        <text x="530" y="104">C</text>
-        <text x="100" y="440">D</text>
-        <text x="495" y="445">E</text>
-      </g>
-      <text x="320" y="265" fontFamily="Manrope, sans-serif" fontSize="11" fill="#2A2720" textAnchor="middle" letterSpacing="2">POOL</text>
-    </svg>
+    <img
+      className="masterplan"
+      src="/illustrations/property-community.jpg?v=1"
+      alt="Five towers around a landscaped courtyard and pool, with Tower B in gold"
+    />
   )
 }
 

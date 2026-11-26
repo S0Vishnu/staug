@@ -17,7 +17,6 @@ const TARGETS = [
   '.panel',
   '.article',
   '.form',
-  '.aerial-frame',
   '.twin-stage',
   '.plot-frame',
 ].join(',')

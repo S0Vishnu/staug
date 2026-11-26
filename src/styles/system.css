@@ -163,7 +163,13 @@ a:hover {
 }
 
 .hero {
-  padding-block: 88px 72px;
+  padding-block: clamp(32px, 5vh, 64px) clamp(28px, 4vh, 56px);
+}
+
+.hero-landing {
+  min-height: calc(100svh - var(--header));
+  box-sizing: border-box;
+  align-content: center;
 }
 
 .band {
@@ -209,6 +215,10 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 56px;
   align-items: center;
+}
+
+.grid-2 > * {
+  min-width: 0;
 }
 
 .grid-2-start {
@@ -1223,8 +1233,36 @@ textarea.field { resize: vertical; }
   margin-top: auto;
 }
 
+.hero-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-art img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(520px, calc(100svh - var(--header) - 220px));
+  object-fit: contain;
+  object-position: center;
+}
+
+.scene-caption {
+  margin: 12px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
 .hero > svg,
-.hero > div > svg {
+.hero > div > svg,
+.hero > .hero-art {
   translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px);
   transition: translate 1.2s var(--ease-out);
 }
@@ -1277,7 +1315,8 @@ textarea.field { resize: vertical; }
   html { scroll-behavior: auto; }
 
   .hero > svg,
-  .hero > div > svg { translate: none; }
+  .hero > div > svg,
+  .hero > .hero-art { translate: none; }
 
   .card:hover,
   .paper-card:hover { transform: none; }

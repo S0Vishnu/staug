@@ -28,7 +28,7 @@ export function HomePage() {
   return (
     <>
       <PageMeta page="home" />
-      <section className="container hero grid-2">
+      <section className="container hero hero-landing grid-2">
         <div className="stack stack-lg">
           <h1 className="display display-hero">
             We augment what builds a business — its <em>people</em> and its <em>spaces</em>.
