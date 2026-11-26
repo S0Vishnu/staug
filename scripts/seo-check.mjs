@@ -1,4 +1,4 @@
-import { readFileSync, existsSync, readdirSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import path from 'node:path'
 
 const dist = path.resolve('dist')
@@ -53,6 +53,25 @@ function walk(node) {
   }
 }
 
+function publishedFile(pathname) {
+  if (!pathname.startsWith('/') || pathname.includes('\\') || pathname.includes('\0')) return false
+  let decoded
+  try {
+    decoded = decodeURIComponent(pathname)
+  } catch {
+    return false
+  }
+  if (decoded.includes('..')) return false
+  const root = path.resolve(dist)
+  const filePath = path.resolve(root, decoded.slice(1))
+  if (filePath !== root && !filePath.startsWith(root + path.sep)) return false
+  try {
+    return statSync(filePath).isFile()
+  } catch {
+    return false
+  }
+}
+
 function checkHref(href, file) {
   if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) return
   if (href.startsWith('https://www.staug.in') || href.startsWith('http://') || href.startsWith('//')) {
@@ -65,6 +84,7 @@ function checkHref(href, file) {
   pathname = pathname.split('#')[0].split('?')[0] || '/'
   if (routes.has(pathname) || staticFiles.has(pathname)) return
   if (pathname.startsWith('/fonts/') || pathname.startsWith('/assets/')) return
+  if (publishedFile(pathname)) return
   fail(`${file} has a broken internal link: ${href}`)
 }
 
