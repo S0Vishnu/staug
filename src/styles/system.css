@@ -914,16 +914,19 @@ h3 {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 8px 30px;
 }
+
+.nav > * { flex-shrink: 0; }
 
 .navlink {
   position: relative;
   color: var(--ivory-2);
   font-size: 15px;
   padding: 10px 0;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
@@ -1265,6 +1268,11 @@ textarea.field { resize: vertical; }
 .hero > .hero-art {
   translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px);
   transition: translate 1.2s var(--ease-out);
+}
+
+@media (max-width: 1040px) {
+  .nav { gap: 8px 12px; }
+  .nav .btn-sm { padding-inline: 14px; }
 }
 
 @media (max-width: 900px) {
