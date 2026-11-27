@@ -48,7 +48,7 @@ export const unitTypes: Record<UnitId, { type: string; view: string }> = {
   '12': { type: '1 Bedroom Apartment', view: 'Boulevard view' },
 }
 
-export const floors = Array.from({ length: 14 }, (_, index) => 14 - index)
+export const floors = Array.from({ length: 16 }, (_, index) => 16 - index)
 
 export function padFloor(n: number) {
   return n < 10 ? `0${n}` : String(n)
